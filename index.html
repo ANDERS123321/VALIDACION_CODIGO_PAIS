@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Validador de Teléfonos</title>
+  <style>
+    body { font-family: Arial; margin: 50px; }
+    input, button { padding: 10px; margin-right: 10px; width: 300px; }
+    #resultado { margin-top: 20px; font-size: 1.2em; }
+  </style>
+</head>
+<body>
+  <h2>📱 Validar Número Telefónico</h2>
+  <input type="text" id="numero" placeholder="+51 987654321" />
+  <button onclick="validarNumero()">Validar</button>
+
+  <p id="resultado"></p>
+
+  <script>
+    function validarNumero() {
+      const numero = document.getElementById("numero").value;
+
+      fetch("/validar", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ numero: numero })
+      })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("resultado").innerText = data.mensaje;
+      })
+      .catch(() => {
+        document.getElementById("resultado").innerText = "⚠️ Error al conectar con la API.";
+      });
+    }
+  </script>
+</body>
+</html>
