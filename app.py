@@ -7,7 +7,7 @@ app = Flask(__name__)
 def home():
     return send_from_directory('.', 'index.html')
 
-@app.route('/validador', methods=['POST'])
+@app.route('/validar', methods=['POST'])
 def validar():
     datos = request.get_json()
     numero = datos.get("numero", "")
