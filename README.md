@@ -71,9 +71,3 @@ pytest o python -m pytest
 ## ⚙️ CI con GitHub Actions
 
 Este proyecto incluye un flujo de trabajo (`.github/workflows/ci.yml`) que ejecuta los tests automáticamente cuando se hacen cambios en el repositorio.
-
----
-
-## 📄 Licencia
-
-Este proyecto es de código abierto bajo la licencia MIT.
