@@ -49,7 +49,13 @@ def validar_telefono(numero):
     elif numero.startswith("+507"):
         # Panamá: +507 6XXXXXXX (8 dígitos, empieza con 6)
         patron = r"^\+507 6\d{7}$"
-    
+    elif numero.startswith("+58"):
+        # Venezuela: +58 4XXXXXXXX (10 dígitos móviles)
+        patron = r"^\+58 4\d{9}$"
+    elif numero.startswith("+81"):
+        # Japón: +81 90XXXXXXXX (10 dígitos, empieza con 90)
+        patron = r"^\+81 90\d{8}$"
+    else:
         return False
 
     return re.match(patron, numero) is not None
